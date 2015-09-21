@@ -6,7 +6,6 @@ module.exports = function(grunt)
     grunt.loadNpmTasks('grunt-mocha-istanbul');
 
     grunt.initConfig({
-
 	jshint: {
 	    options: {
 		jshintrc: true
@@ -15,7 +14,7 @@ module.exports = function(grunt)
 	},
 	mochaTest: {
 	    test: {
-		src: [ 'test/*spec.js' ]
+		src: [ 'test/*.spec.js' ]
 	    }
 	},
 	mocha_istanbul: {
@@ -29,16 +28,15 @@ module.exports = function(grunt)
 		}
 	    }
 	}
-
     });
 
     grunt.registerTask('lint', ['jshint']);
     grunt.registerTask('test', ['mochaTest']);
     grunt.registerTask('coverage', ['mocha_istanbul']);
-    grunt.registerTask('default', [
+        grunt.registerTask('default', [
 	'lint',
-	'test'/*,
-	coverage'*/
+	'test',
+	'coverage'
     ]);
 
 };

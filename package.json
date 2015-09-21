@@ -1,19 +1,43 @@
 {
     "name": "es6-polyfills",
+    "description": "ES6 polyfills that use native implementation if available and do not pollute the global namespace",
+    "author": {
+	"name": "The National Library of Finland"
+    },
+    "keywords": [
+	"es6",
+	"polyfill",
+	"shim",
+	"ecmascript",
+	"harmony",
+	"object",
+	"assign",
+	"promise"
+    ],
+    "homepage": "https://github.com/NatLibFi/es6-polyfills",
+    "bugs": {
+	"url": "https://github.com/NatLibFi/es6-polyfills/issues"
+    },
+    "repository": {
+	"type": "git",
+	"url": "git@github.com:NatLibFi/es6-polyfills.git"
+    },
+    "license": " GPL-3.0",
     "version": "0.0.1",
     "main": "lib/main",
     "dependencies": {
-	"amdefine": "~1.0.0",
-	"object.assign": "~4.0.1",
-	"es6-promise-polyfill": "~1.0.0"
+	"object.assign": ">=4.0.1 <4.1",
+	"es6-promise-polyfill": ">=1.0.0 <1.1"
     },
     "devDependencies": {
-	"grunt": "~0.4.5",
-	"jshint": "~2.8.0",
-	"mocha": "~2.3.2",
-	"istanbul": "~0.3.19",
-	"grunt-contrib-jshint": "~0.11.3",
-	"grunt-mocha-test": "~0.12.7",
-	"grunt-mocha-istanbul": "~3.0.1"
+	"amdefine": ">=1.0.0 <1.1",
+	"chai": "^3.2.0",
+	"grunt": "^0.4.5",
+	"jshint": "^2.8.0",
+	"mocha": "^2.3.2",
+	"istanbul": "^0.3.20",
+	"grunt-contrib-jshint": "^0.11.3",
+	"grunt-mocha-test": "^0.12.7",
+	"grunt-mocha-istanbul": ">=3.0.1 <3.2"
     }
 }

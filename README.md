@@ -1,0 +1,44 @@
+# ES6 polyfills
+A collection of ES6 polyfills that use native implementations if available and do not pollute the global namespace
+
+## List of polyfills
+
+Polyfill implementations are from different projects:
+
+* **Object** (*Object.assign*): https://github.com/ljharb/object.assign
+* **Promise**: https://github.com/lahmatiy/es6-promise-polyfill
+
+## Usage
+
+### AMD
+
+```
+define(['es6-polyfills/lib/promise'], function(Promise) {
+ var p = new Promise(function(resolve, reject){
+  resolve();
+ });
+});
+```
+
+### Node.js
+
+```
+var Promise = require('es6-polyfills/lib/promise');
+var p = new Promise(function(resolve, reject){
+  resolve();
+});
+```
+
+### Browser globals (Okay, it *can* pollute the global namespace)
+
+```
+var p = new Promise(function(resolve, reject){
+  resolve();
+});
+```
+
+## License and copyright
+
+Copyright (c) 2015 University Of Helsinki (The National Library Of Finland)
+
+This project's source code is licensed under the terms of **GNU General Public License Version 3**. See each polyfill implementation for their respective licensing terms.
