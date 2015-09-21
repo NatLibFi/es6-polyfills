@@ -12,7 +12,7 @@ Polyfill implementations are from different projects:
 
 ### AMD
 
-```
+```javascript
 define(['es6-polyfills/lib/promise'], function(Promise) {
  var p = new Promise(function(resolve, reject){
   resolve();
@@ -22,7 +22,7 @@ define(['es6-polyfills/lib/promise'], function(Promise) {
 
 ### Node.js
 
-```
+```javascript
 var Promise = require('es6-polyfills/lib/promise');
 var p = new Promise(function(resolve, reject){
   resolve();
@@ -31,7 +31,7 @@ var p = new Promise(function(resolve, reject){
 
 ### Browser globals (Okay, it *can* pollute the global namespace)
 
-```
+```javascript
 var p = new Promise(function(resolve, reject){
   resolve();
 });
