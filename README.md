@@ -1,5 +1,5 @@
 # ES6 polyfills
-A collection of ES6 polyfills that use native implementations if available and do not pollute the global namespace
+A collection of [ES6](https://en.wikipedia.org/wiki/ECMAScript#ES6) polyfills that use native implementations if available and do not pollute the global namespace
 
 ## List of polyfills
 
