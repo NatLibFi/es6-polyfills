@@ -4,7 +4,7 @@
 *
 * ES6 polyfills that use native implementation if available and do not pollute the global namespace
 *
-* Copyright (c) 2015 University Of Helsinki (The National Library Of Finland)
+* Copyright (c) 2015-2016 University Of Helsinki (The National Library Of Finland)
 *
 * This file is part of es6-polyfills 
 *
