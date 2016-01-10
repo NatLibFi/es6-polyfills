@@ -86,6 +86,7 @@
 		    expect(PromisePolyfill).to.be.a('function');
 		    expect(Object.getOwnPropertyNames(PromisePolyfill)).to.include.members(Object.keys(Promise.prototype));
 		    expect(new PromisePolyfill(function(){})).to.respondTo('then').and.to.respondTo('catch');
+		    expect(new PromisePolyfill(function(){})).to.be.an.instanceOf(PromisePolyfill);
 
 		    if (no_native_promise) {
 			Promise = undefined;
@@ -109,6 +110,8 @@
 
 		    expect(PromisePolyfill).to.be.a('function');
 		    expect(new PromisePolyfill(function(){})).to.respondTo('then').and.to.respondTo('catch');
+		    expect(PromisePolyfill).to.not.eql(Promise);
+		    expect(new PromisePolyfill(function(){})).to.be.an.instanceOf(PromisePolyfill);
 
 		    if (NativePromise) {
 			Promise = NativePromise;

@@ -68,6 +68,7 @@
 
 		    expect(ObjectPolyfill.assign).to.be.a('function');
 		    expect(ObjectPolyfill).to.eql(Object);
+		    expect(new ObjectPolyfill()).to.be.an.instanceOf(ObjectPolyfill);
 
 		    if (native_assign) {
 			Object.assign = native_assign;
@@ -93,6 +94,7 @@
 
 		    expect(ObjectPolyfill.assign).to.be.a('function');
 		    expect(ObjectPolyfill).not.to.eql(Object);
+		    expect(new ObjectPolyfill()).to.be.an.instanceOf(ObjectPolyfill);
 
 		    if (native_assign) {
 			Object.assign = native_assign;
