@@ -25,19 +25,32 @@
     "license": " GPL-3.0",
     "version": "0.0.1",
     "main": "lib/main",
+    "scripts": {
+	"lint": "jshint .",
+	"test-nodejs": "mocha",
+	"test-browser": "karma start",
+	"test": "npm run test-nodejs && npm run test-browser",
+	"coverage": "istanbul cover _mocha",
+	"check": "npm run lint && npm run test && npm run coverage",
+	"coveralls": "",
+	"saucelabs": "",
+	"travisci": "npm run check && npm run saucelabs && npm run coveralls",
+	"publish-to-npm": ""
+    },
     "dependencies": {
-	"object.assign": ">=4.0.1 <4.1",
-	"es6-promise-polyfill": ">=1.0.0 <1.1"
+	"es6-object-assign": ">=1.0.1 <1.1",
+	"es6-promise-polyfill": "https://github.com/natlibfi-arlehiko/es6-promise-polyfill#amd-fix"
     },
     "devDependencies": {
-	"amdefine": ">=1.0.0 <1.1",
 	"chai": "^3.2.0",
-	"grunt": "^0.4.5",
 	"jshint": "^2.8.0",
 	"mocha": "^2.3.2",
 	"istanbul": "^0.3.20",
-	"grunt-contrib-jshint": "^0.11.3",
-	"grunt-mocha-test": "^0.12.7",
-	"grunt-mocha-istanbul": ">=3.0.1 <3.2"
+	"karma": "^0.13.19",
+	"karma-mocha": "^0.2.1",
+	"karma-requirejs": "^0.2.3",
+	"karma-phantomjs-launcher": "^0.2.3",
+	"phantomjs": "^1.9.19",
+	"coveralls": "^2.11.6"
     }
 }

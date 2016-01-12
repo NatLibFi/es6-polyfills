@@ -26,116 +26,102 @@
 *
 **/
 
-(function() {
+(function (root, factory) {
+    
+    'use strict';
+
+    if (typeof define === 'function' && define.amd) {
+        define(['chai', '../lib/promise'], factory);
+    } else if (typeof exports === 'object' && module.exports) {
+	module.exports = factory(require('chai'), require('../lib/promise'));
+    }
+
+}(this, factory));
+
+function factory(chai, createPolyfill) {
 
     'use strict';
+
+    var expect = chai.expect;
     
-    var define;
-
-    if  (typeof define !== 'function') {
-	define = require('amdefine')(module);
-    }
-
-    function removeModuleFromCache(module_path)
-    {
-	if (require.cache && module_path in require.cache) {
-	    delete require.cache[module_path];
-	}
-    }
-
-    define(['require', 'chai'], function(require, chai) {
-	
-	var expect = chai.expect;
-	
-	function removeModuleFromCache(module_path)
-	{
-	    if (require.cache && module_path in require.cache) {
-		delete require.cache[module_path];
-	    }
-	}
-	
-	describe('promise', function() {
+    describe('promise', function() {
 	    
-	    afterEach(function() {
-		/**
-		 * @todo amdefine's require doesn't normalize the path correctly. Report&|Contribute
-		 */
-		removeModuleFromCache(require.toUrl('../lib/promise').replace(new RegExp('/\\.\\.'), '') + '.js');
-	    });
-	    
-	    it('Should return a native Promise', function(done) {
+	describe('factory', function() {
 
-		var no_native_promise, Promise;
-
-		if (typeof Promise !== 'function') {
-
-		    Promise = function() {			
-			this.then = function(){};
-			this.catch = function(){};
-		    };		
-
-		    Promise.prototype.all = function() {};
-		    Promise.prototype.race = function() {};
-		    Promise.prototype.resolve = function() {};
-		    Promise.prototype.reject = function() {};
-
-		}
-
-		require(['../lib/promise'], function(PromisePolyfill) {
-
-		    expect(PromisePolyfill).to.be.a('function');
-		    expect(Object.getOwnPropertyNames(PromisePolyfill)).to.include.members(Object.keys(Promise.prototype));
-		    expect(new PromisePolyfill(function(){})).to.respondTo('then').and.to.respondTo('catch');
-		    expect(new PromisePolyfill(function(){})).to.be.an.instanceOf(PromisePolyfill);
-
-		    if (no_native_promise) {
-			Promise = undefined;
-		    }
-
-		    done();
-
-		});		
+	    it('Should be a function', function() {
+		expect(createPolyfill).to.be.a('function');
 	    });
 
-	    it('Should return a polyfill to Promise', function(done) {
+	    it('Should create a constructor function with methods', function() {
+
+		var Polyfill = createPolyfill(1);
 		
-		var NativePromise;
+		expect(Polyfill).to.have.ownProperty('resolve');
+		expect(Polyfill).to.have.ownProperty('reject');
+		expect(Polyfill).to.have.ownProperty('all');
+		expect(Polyfill).to.have.ownProperty('race');
+		
+		expect(Polyfill.resolve).to.be.a('function');
+		expect(Polyfill.reject).to.be.a('function');
+		expect(Polyfill.all).to.be.a('function');
+		expect(Polyfill.race).to.be.a('function');
+
+	    });
+
+	    it('Should use the polyfill even without forcing', function() {
+
+		var Polyfill, orig_promise;
 
 		if (typeof Promise === 'function') {
-		    NativePromise = Promise;
+		    orig_promise = Promise;
 		    Promise = undefined;
 		}
 
-		require(['../lib/promise'], function(PromisePolyfill) {
+		Polyfill = createPolyfill();
+		
+		expect(Polyfill).to.not.be.equal(orig_promise);
 
-		    expect(PromisePolyfill).to.be.a('function');
-		    expect(new PromisePolyfill(function(){})).to.respondTo('then').and.to.respondTo('catch');
-		    expect(PromisePolyfill).to.not.eql(Promise);
-		    expect(new PromisePolyfill(function(){})).to.be.an.instanceOf(PromisePolyfill);
+		if (typeof orig_promise === 'function') {
+		    Promise = orig_promise;
+		}
 
-		    if (NativePromise) {
-			Promise = NativePromise;
-		    }
-
-		    done();
-
-		});
-
-	    });	
-	  
-	    it('Should resolve', function(done) {
-		require(['../lib/promise'], function(PromisePolyfill) {
-		    new PromisePolyfill(function(resolve, reject) {
-			resolve();
-		    }).then(function() {
-			done();
-		    });
-		});
 	    });
 
-  
+
+	    describe('constructor', function() {
+
+		it('Should instantiate the correct object', function() {
+	    		
+		    var Polyfill = createPolyfill(1);
+		    
+		    expect(new Polyfill(function(){})).to.respondTo('then').and.to.respondTo('catch');
+		    expect(new Polyfill(function(){})).to.be.an.instanceOf(Polyfill);
+
+		});
+
+		it('Should resolve', function(done) {
+
+		    var Polyfill = createPolyfill(1);
+		    
+		    new Polyfill(function(fn_resolve) {
+			
+			fn_resolve('foobar');
+			
+		    }).then(function(value) {
+			try {
+			    expect(value).to.eql('foobar');
+			    done();
+			} catch (e) {
+			    done(e);
+			}	
+		    });
+
+		});
+
+	    });
+
 	});
 
     });
 
-}());
+}

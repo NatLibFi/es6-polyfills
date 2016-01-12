@@ -1,11 +1,14 @@
 # ES6 polyfills
+
+**IN DEVELOPMENT**
+
 A collection of [ES6](https://en.wikipedia.org/wiki/ECMAScript#ES6) polyfills that use native implementations if available and do not pollute the global namespace
 
 ## List of polyfills
 
 Polyfill implementations are from different projects:
 
-* **Object** (*Object.assign*): https://github.com/ljharb/object.assign
+* **Object** (*Object.assign*): https://github.com/rubennorte/es6-object-assign
 * **Promise**: https://github.com/lahmatiy/es6-promise-polyfill
 
 ## Installation
@@ -18,7 +21,13 @@ npm install
 
 ## Testing
 
-*TODO*
+Run the following NPM script to lint, test and check coverage of the code:
+
+```javascript
+
+npm run check
+
+```
 
 ## Usage
 
@@ -26,7 +35,7 @@ npm install
 
 ```javascript
 
-define(['es6-polyfills/lib/promise'], function(Promise) {
+define(['es6-polyfills/lib/polyfills/promise'], function(Promise) {
 
  var p = new Promise(function(resolve, reject){
   resolve(); 
@@ -41,17 +50,7 @@ define(['es6-polyfills/lib/promise'], function(Promise) {
 
 ```javascript
 
-var Promise = require('es6-polyfills/lib/promise');
-var p = new Promise(function(resolve, reject){
-  resolve();
-});
-
-```
-
-### Browser globals (Okay, it *can* pollute the global namespace)
-
-```javascript
-
+var Promise = require('es6-polyfills/lib/polyfills/promise');
 var p = new Promise(function(resolve, reject){
   resolve();
 });
