@@ -23,7 +23,7 @@
 	"url": "git@github.com:NatLibFi/es6-polyfills.git"
     },
     "license": " GPL-3.0",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "main": "lib/main",
     "scripts": {
 	"lint": "jshint .",
@@ -33,7 +33,7 @@
 	"coverage": "istanbul cover _mocha",
 	"check": "npm run lint && npm run test && npm run coverage",
 	"travisci": "npm run check",
-	"publish-to-npm": ""
+	"publish-to-npm": "npm run check && npm publish"
     },
     "dependencies": {
 	"es6-object-assign": ">=1.0.1 <1.1",
