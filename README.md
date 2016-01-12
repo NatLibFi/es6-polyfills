@@ -1,4 +1,4 @@
-# ES6 polyfills
+# ES6 polyfills [![Build Status](https://travis-ci.org/NatLibFi/es6-polyfills.svg)](https://travis-ci.org/NatLibFi/es6-polyfills)
 
 **IN DEVELOPMENT**
 
