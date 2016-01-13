@@ -1,4 +1,4 @@
-# ES6 polyfills [![NPM Version](https://img.shields.io/npm/v/npm.svg)](https://npmjs.org/package/es6-polyfills) [![Build Status](https://travis-ci.org/NatLibFi/es6-polyfills.svg)](https://travis-ci.org/NatLibFi/es6-polyfills)
+# ES6 polyfills [![NPM Version](https://img.shields.io/npm/v/es6-polyfills.svg)](https://npmjs.org/package/es6-polyfills) [![Build Status](https://travis-ci.org/NatLibFi/es6-polyfills.svg)](https://travis-ci.org/NatLibFi/es6-polyfills)
 
 A collection of [ES6](https://en.wikipedia.org/wiki/ECMAScript#ES6) polyfills that use native implementations if available and do not pollute the global namespace
 
