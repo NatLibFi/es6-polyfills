@@ -54,7 +54,7 @@ function factory(chai, createPolyfill) {
 
 	    it('Should create a constructor function with methods', function() {
 
-		var Polyfill = createPolyfill(1);
+		var Polyfill = createPolyfill();
 		
 		expect(Polyfill).to.have.ownProperty('resolve');
 		expect(Polyfill).to.have.ownProperty('reject');
@@ -68,31 +68,11 @@ function factory(chai, createPolyfill) {
 
 	    });
 
-	    it('Should use the polyfill even without forcing', function() {
-
-		var Polyfill, orig_promise;
-
-		if (typeof Promise === 'function') {
-		    orig_promise = Promise;
-		    Promise = undefined;
-		}
-
-		Polyfill = createPolyfill();
-		
-		expect(Polyfill).to.not.be.equal(orig_promise);
-
-		if (typeof orig_promise === 'function') {
-		    Promise = orig_promise;
-		}
-
-	    });
-
-
 	    describe('constructor', function() {
 
 		it('Should instantiate the correct object', function() {
 	    		
-		    var Polyfill = createPolyfill(1);
+		    var Polyfill = createPolyfill();
 		    
 		    expect(new Polyfill(function(){})).to.respondTo('then').and.to.respondTo('catch');
 		    expect(new Polyfill(function(){})).to.be.an.instanceOf(Polyfill);
@@ -101,7 +81,7 @@ function factory(chai, createPolyfill) {
 
 		it('Should resolve', function(done) {
 
-		    var Polyfill = createPolyfill(1);
+		    var Polyfill = createPolyfill();
 		    
 		    new Polyfill(function(fn_resolve) {
 			
