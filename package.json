@@ -49,6 +49,6 @@
 	"karma-requirejs": "^0.2.3",
 	"karma-phantomjs-launcher": "^0.2.3",
 	"phantomjs": "^1.9.19",
-	"coveralls": "^2.11.6"
+	"codeclimate-test-reporter": "^0.1.1"
     }
 }
