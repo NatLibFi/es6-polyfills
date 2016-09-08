@@ -15,7 +15,7 @@
  *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
@@ -27,81 +27,81 @@
  **/
 
 (function (root, factory) {
-    
-    'use strict';
+  
+  'use strict';
 
-    if (typeof define === 'function' && define.amd) {
-        define(['chai', '../lib/object'], factory);
-    } else if (typeof exports === 'object' && module.exports) {
-	module.exports = factory(require('chai'), require('../lib/object'));
-    }
+  if (typeof define === 'function' && define.amd) {
+    define(['chai/chai', '../lib/object'], factory);
+  } else if (typeof exports === 'object' && module.exports) {
+    module.exports = factory(require('chai'), require('../lib/object'));
+  }
 
 }(this, factory));
 
 function factory(chai, createPolyfill) {
 
-    'use strict';
+  'use strict';
 
-    var expect = chai.expect;
-    
-    describe('object', function() {	
+  var expect = chai.expect;
+  
+  describe('object', function() { 
 
-	describe('factory', function() {
+    describe('factory', function() {
 
-	    it('Should be a function', function() {
-		expect(createPolyfill).to.be.a('function');
-	    });
+      it('Should be a function', function() {
+        expect(createPolyfill).to.be.a('function');
+      });
 
-	    describe('constructor', function() {
+      describe('constructor', function() {
 
-		it('Should instantiate the correct object', function() {
+        it('Should instantiate the correct object', function() {
 
-		    var Polyfill = createPolyfill(function() {}),
-		    obj = new Polyfill();		  
+          var Polyfill = createPolyfill(function() {}),
+          obj = new Polyfill();     
 
-		    expect(obj).to.be.an('object');
+          expect(obj).to.be.an('object');
 
-		});
+        });
 
-		it("Should create a new property 'assign' which is a function", function() {
-		    
-		    var Polyfill,
-		    constructor = function() {};
-		    
-		    constructor.test = function() {};
-		    Polyfill = createPolyfill(constructor);
-		    
-		    expect(Polyfill).to.be.a('function');
-		    expect(Polyfill.test).to.be.a('function');
-		    expect(Polyfill.assign).to.be.a('function');
-		    expect(new Polyfill()).to.be.a('object');
-		    expect(new Polyfill()).to.be.an.instanceof(Polyfill);
-		    
-		});
-		
-		it('Should assign properties to the other object', function() {
-		    
-		    var polyfill, target_orig,
-		    source = {
-			a: 0,
-			b: 1,
-			c: 2
-		    },
-		    target = {};
-		    
-		    polyfill = createPolyfill(function(){});
-		    
-		    target = polyfill.assign(target, source);
-		    
-		    expect(target).to.be.an('object');
-		    expect(Object.keys(target)).to.eql(Object.keys(source));
-		    
-		});
+        it("Should create a new property 'assign' which is a function", function() {
+          
+          var Polyfill,
+          constructor = function() {};
+          
+          constructor.test = function() {};
+          Polyfill = createPolyfill(constructor);
+          
+          expect(Polyfill).to.be.a('function');
+          expect(Polyfill.test).to.be.a('function');
+          expect(Polyfill.assign).to.be.a('function');
+          expect(new Polyfill()).to.be.a('object');
+          expect(new Polyfill()).to.be.an.instanceof(Polyfill);
+          
+        });
+        
+        it('Should assign properties to the other object', function() {
+          
+          var polyfill, target_orig,
+          source = {
+            a: 0,
+            b: 1,
+            c: 2
+          },
+          target = {};
+          
+          polyfill = createPolyfill(function(){});
+          
+          target = polyfill.assign(target, source);
+          
+          expect(target).to.be.an('object');
+          expect(Object.keys(target)).to.eql(Object.keys(source));
+          
+        });
 
-	    });
-	
-	});
-	
+      });
+      
     });
+    
+  });
 
 }
