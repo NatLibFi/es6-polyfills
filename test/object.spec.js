@@ -63,6 +63,15 @@ function factory(chai, createPolyfill) {
 
         });
 
+        it('Should instantiate the correct object (With native Object)', function() {
+
+          var Polyfill = createPolyfill(),
+          obj = new Polyfill();     
+          
+          expect(obj).to.be.an('object');
+
+        });
+
         it("Should create a new property 'assign' which is a function", function() {
           
           var Polyfill,
