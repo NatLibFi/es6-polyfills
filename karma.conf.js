@@ -3,8 +3,21 @@ module.exports = function(config) {
     singleRun: true,
     frameworks: ['mocha', 'requirejs'],
     browsers: ['PhantomJS'],
+    reporters: ['progress', 'coverage'],
     preprocessors: {
+      'lib/*.js': 'coverage',
       'test/browser-main.js': 'requirejs'
+    },
+    coverageReporter: {
+      subdir: 'browser',
+      reporters: [
+        {
+          type: 'json'
+        },
+        {
+          type: 'html'
+        }
+      ]
     },
     requirejsPreprocessor: {
       config: {
