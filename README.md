@@ -4,10 +4,14 @@ A collection of [ES6](https://en.wikipedia.org/wiki/ECMAScript#ES6) polyfills th
 
 ## List of polyfills
 
+- **Object** ([Object.assign](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign))
+- **Array** ([Array.of](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/of))
+- **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)**
+
 Polyfill implementations are from different projects:
 
-* **Object** (*Object.assign*): https://github.com/rubennorte/es6-object-assign
-* **Promise**: https://github.com/lahmatiy/es6-promise-polyfill
+- **Object** (*Object.assign*): https://github.com/rubennorte/es6-object-assign
+- **Promise**: https://github.com/lahmatiy/es6-promise-polyfill
 
 ## Installation
 
