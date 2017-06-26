@@ -22,8 +22,8 @@
     "type": "git",
     "url": "git@github.com:NatLibFi/es6-polyfills.git"
   },
-  "license": " GPL-3.0",
-  "version": "1.1.0",
+  "license": " LGPL-3.0+",
+  "version": "2.0.0",
   "scripts": {
     "lint": "jshint .",      
     "test-nodejs": "istanbul cover --dir coverage/nodejs _mocha -- test/*.spec.js",
@@ -54,6 +54,7 @@
     "karma-requirejs": "^1.0.0",
     "karma-phantomjs-launcher": "^1.0.2",
     "karma-requirejs-preprocessor": "^0.0.2",
+    "requirejs": "^2.3.3",
     "requirejs-configurator": "https://github.com/natlibfi-arlehiko/requirejs-configurator#dev-deps",
     "codeclimate-test-reporter": "^0.3.3"
   }

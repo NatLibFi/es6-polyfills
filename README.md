@@ -63,4 +63,5 @@ var p = new Promise(function(resolve, reject){
 
 Copyright (c) 2015-2016 **University Of Helsinki (The National Library Of Finland)**
 
-This project's source code is licensed under the terms of **GNU General Public License Version 3**. See each polyfill implementation for their respective licensing terms.
+This project's source code is licensed under the terms of **GNU Lesser General Public License Version 3** or any later version. See each polyfill implementation for their respective licensing terms.
+
