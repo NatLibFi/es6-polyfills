@@ -23,7 +23,7 @@
     "url": "git@github.com:NatLibFi/es6-polyfills.git"
   },
   "license": " LGPL-3.0+",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "scripts": {
     "lint": "jshint .",      
     "test-nodejs": "istanbul cover --dir coverage/nodejs _mocha -- test/*.spec.js",
