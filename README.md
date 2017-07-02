@@ -1,4 +1,4 @@
-# ES6 polyfills [![NPM Version](https://img.shields.io/npm/v/es6-polyfills.svg)](https://npmjs.org/package/es6-polyfills) [![Build Status](https://travis-ci.org/NatLibFi/es6-polyfills.svg)](https://travis-ci.org/NatLibFi/es6-polyfills) [![Test Coverage](https://codeclimate.com/github/NatLibFi/es6-polyfills/badges/coverage.svg)](https://codeclimate.com/github/NatLibFi/es6-polyfills/coverage)
+# ES6 polyfills [![NPM Version](https://img.shields.io/npm/v/@natlibfi/es6-polyfills.svg)](https://npmjs.org/package/es6-polyfills) [![Build Status](https://travis-ci.org/NatLibFi/es6-polyfills.svg)](https://travis-ci.org/NatLibFi/es6-polyfills) [![Test Coverage](https://codeclimate.com/github/NatLibFi/es6-polyfills/badges/coverage.svg)](https://codeclimate.com/github/NatLibFi/es6-polyfills/coverage)
 
 A collection of [ES6](https://en.wikipedia.org/wiki/ECMAScript#ES6) polyfills that use native implementations if available and do not pollute the global namespace
 
@@ -61,7 +61,7 @@ var p = new Promise(function(resolve, reject){
 
 ## License and copyright
 
-Copyright (c) 2015-2016 **University Of Helsinki (The National Library Of Finland)**
+Copyright (c) 2015-2017 **University Of Helsinki (The National Library Of Finland)**
 
 This project's source code is licensed under the terms of **GNU Lesser General Public License Version 3** or any later version. See each polyfill implementation for their respective licensing terms.
 

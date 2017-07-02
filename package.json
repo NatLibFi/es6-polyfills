@@ -1,5 +1,5 @@
 {
-  "name": "es6-polyfills",
+  "name": "@natlibfi/es6-polyfills",
   "description": "ES6 polyfills that use native implementation if available and do not pollute the global namespace",
   "author": {
     "name": "The National Library of Finland"
@@ -36,7 +36,7 @@
     "check": "npm run lint && npm run cover",
     "travisci": "npm run check",
     "generate-requirejs-config": "requirejs-configurator --npm --include-dev-dependencies --exclude-peer-dependencies > test/browser-main.js",
-    "publish-to-npm": "npm install && npm run check && npm publish"
+    "publish-to-npm": "npm install && npm run check && npm publish --access=public"
   },
   "dependencies": {
     "es6-object-assign": "^1.0.3",
